@@ -3,7 +3,7 @@ class SlingShot{
         var options = {
             bodyA: bodyA,
             pointB: pointB,
-            stiffness: 0.04,
+            stiffness: 0.08,
             length: 10
         }
         this.sling1 = loadImage('sprites/sling1.png');
@@ -13,10 +13,14 @@ class SlingShot{
         this.sling = Constraint.create(options);
         World.add(world, this.sling);
     }
+    attach(body){
+        this.sling.bodyA = body;
+    }
 
     fly(){
         this.sling.bodyA = null;
     }
+    
 
     display(){
         image(this.sling1,200,20);
